@@ -20,6 +20,7 @@ profile: true
         <ul>
           <li><a href="#about" class="is-active"><span class="profile__nav-line"></span>About</a></li>
           <li><a href="#work"><span class="profile__nav-line"></span>Selected work</a></li>
+          <li><a href="#experience"><span class="profile__nav-line"></span>Experience</a></li>
           <li><a href="#writing"><span class="profile__nav-line"></span>Writing</a></li>
           <li><a href="#contact"><span class="profile__nav-line"></span>Contact</a></li>
         </ul>
@@ -139,6 +140,41 @@ profile: true
           </ul>
         </li>
       </ul>
+    </section>
+
+    <section id="experience" class="profile__section" aria-label="Experience">
+      <h2 class="section-label">Experience</h2>
+      <ul class="exp-list">
+        <li class="exp-item">
+          <div class="exp-item__date">2026</div>
+          <div class="exp-item__body">
+            <h3 class="exp-item__role">Software Engineer Intern <span class="exp-item__org">&middot; Synapxe</span></h3>
+            <p class="exp-item__desc">Internal monitoring dashboards deployed on AWS ECS/Fargate — React/TypeScript, Python, and CloudFormation IaC.</p>
+          </div>
+        </li>
+        <li class="exp-item">
+          <div class="exp-item__date">2025</div>
+          <div class="exp-item__body">
+            <h3 class="exp-item__role">Software Engineer Intern <span class="exp-item__org">&middot; Cinch Asia</span></h3>
+            <p class="exp-item__desc">Shipped two AI services in Python/Docker; rewrote AWS Lambda scripts into Go microservices (&minus;75% cold-start).</p>
+          </div>
+        </li>
+        <li class="exp-item">
+          <div class="exp-item__date">2024&ndash;25</div>
+          <div class="exp-item__body">
+            <h3 class="exp-item__role">Teaching Assistant <span class="exp-item__org">&middot; CS2100 Computer Organisation, NUS</span></h3>
+            <p class="exp-item__desc">Tutored 100+ students weekly in data representation, pipelining, memory hierarchy, and assembly.</p>
+          </div>
+        </li>
+        <li class="exp-item">
+          <div class="exp-item__date">2023&ndash;24</div>
+          <div class="exp-item__body">
+            <h3 class="exp-item__role">Quant Engineer <span class="exp-item__org">&middot; NUS Investment Society</span></h3>
+            <p class="exp-item__desc">Where the systematic-trading work started — built a mean&ndash;CVaR portfolio optimizer and backtested allocation strategies.</p>
+          </div>
+        </li>
+      </ul>
+      <p><a class="profile__more" href="{{ site.resume_path | relative_url }}" rel="noopener" target="_blank">Full résumé &rarr;</a></p>
     </section>
 
     <section id="writing" class="profile__section" aria-label="Writing">
