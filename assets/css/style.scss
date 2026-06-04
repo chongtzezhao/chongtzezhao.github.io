@@ -618,6 +618,14 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
   color: var(--text);
   margin-top: 0.3rem;
 }
+.profile__motto {
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-strong);
+  margin-top: var(--space-3);
+}
 .profile__pitch {
   color: var(--muted);
   margin-top: var(--space-2);
