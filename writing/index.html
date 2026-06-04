@@ -1,0 +1,62 @@
+---
+layout: default
+title: Writing
+description: >-
+  In-depth technical writeups on quantitative-trading methodology — market
+  microstructure, ML validation, transaction-cost realism, and the gap between
+  a backtest and reality.
+permalink: /writing/
+---
+
+<div class="wrap">
+  <header class="page-head">
+    <h1>Writing</h1>
+    <p class="page-head__lead">
+      In-depth notes on the methodology and rigor behind systematic-trading
+      research — microstructure, ML validation, transaction-cost realism, and
+      the gap between a backtest and reality.
+    </p>
+  </header>
+
+  {% if site.posts.size > 0 %}
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li class="post-list__item">
+          <time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%b %-d, %Y" }}
+          </time>
+          <h2 class="post-list__title">
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </h2>
+          {% if post.description %}
+            <p class="post-list__desc">{{ post.description | escape }}</p>
+          {% endif %}
+          {% if post.tags.size > 0 %}
+            <div class="post-list__tags">
+              {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="empty-state">
+      <svg class="empty-state__mark" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        <line x1="9" y1="7" x2="15" y2="7"></line>
+        <line x1="9" y1="11" x2="13" y2="11"></line>
+      </svg>
+      <h2>Posts coming soon</h2>
+      <p>
+        The first writeups are being drafted — deep dives into the validation
+        machinery: phantom-fill detection, leakage audits, honest-cost kills,
+        and what survives.
+      </p>
+      <p class="empty-state__feed">
+        Subscribe via <a href="{{ '/feed.xml' | relative_url }}">RSS</a> to get them as they land.
+      </p>
+    </div>
+  {% endif %}
+</div>

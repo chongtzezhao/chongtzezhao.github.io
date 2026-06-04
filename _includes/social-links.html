@@ -1,0 +1,62 @@
+{%- comment -%}
+  The outbound link set ("route outward" — brief job #3). Single source of truth
+  for GitHub / LinkedIn / Résumé / Email, driven by _config.yml. Reused on the
+  home hero and in the footer. Pass a modifier class via include.class.
+  Twitter/X is intentionally omitted until the account exists (brief §9).
+{%- endcomment -%}
+<ul class="social {{ include.class }}">
+  {%- if site.social_links.github -%}
+  <li>
+    <a href="https://github.com/{{ site.social_links.github }}" rel="me noopener" target="_blank">
+      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.21 11.19.6.11.82-.25.82-.57 0-.28-.01-1.02-.02-2-3.34.71-4.04-1.58-4.04-1.58-.55-1.36-1.33-1.73-1.33-1.73-1.09-.73.08-.71.08-.71 1.2.08 1.83 1.21 1.83 1.21 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.35 1.24-3.18-.12-.3-.54-1.51.12-3.15 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 0 1 3-.4c1.02 0 2.05.13 3 .4 2.29-1.53 3.3-1.21 3.3-1.21.66 1.64.24 2.85.12 3.15.77.83 1.23 1.89 1.23 3.18 0 4.54-2.81 5.54-5.49 5.83.43.36.81 1.09.81 2.2 0 1.59-.01 2.87-.01 3.26 0 .32.21.69.83.57A12.3 12.3 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"/>
+      </svg>
+      <span>GitHub</span>
+    </a>
+  </li>
+  {%- endif -%}
+  {%- if site.social_links.linkedin -%}
+  <li>
+    <a href="https://linkedin.com/in/{{ site.social_links.linkedin }}" rel="me noopener" target="_blank">
+      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z"/>
+      </svg>
+      <span>LinkedIn</span>
+    </a>
+  </li>
+  {%- endif -%}
+  {%- if site.social_links.twitter -%}
+  <li>
+    <a href="https://x.com/{{ site.social_links.twitter }}" rel="me noopener" target="_blank">
+      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+      </svg>
+      <span>X / Twitter</span>
+    </a>
+  </li>
+  {%- endif -%}
+  {%- if site.resume_path -%}
+  <li>
+    <a href="{{ site.resume_path | relative_url }}" rel="noopener" target="_blank">
+      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+      <span>Résumé</span>
+    </a>
+  </li>
+  {%- endif -%}
+  {%- if site.contact_email -%}
+  <li>
+    <a href="mailto:{{ site.contact_email }}" rel="noopener">
+      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>
+      </svg>
+      <span>Email</span>
+    </a>
+  </li>
+  {%- endif -%}
+</ul>

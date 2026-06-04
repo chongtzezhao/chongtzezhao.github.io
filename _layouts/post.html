@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{%- assign words = content | number_of_words -%}
+{%- assign minutes = words | divided_by: 220 | plus: 1 -%}
+<article class="post wrap" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post__header">
+    <div class="post__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+      <span>{{ minutes }} min read</span>
+      {%- if page.tags.size > 0 -%}
+        <span>
+          {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+        </span>
+      {%- endif -%}
+    </div>
+    <h1 class="post__title" itemprop="headline">{{ page.title | escape }}</h1>
+    {%- if page.description -%}
+      <p class="post__desc">{{ page.description | escape }}</p>
+    {%- endif -%}
+  </header>
+
+  <div class="prose" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post__footer">
+    <a class="back-link" href="{{ '/writing/' | relative_url }}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to all writing
+    </a>
+  </footer>
+</article>

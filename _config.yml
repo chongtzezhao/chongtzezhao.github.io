@@ -1,0 +1,91 @@
+# --- Site identity -------------------------------------------------------
+title: Chong Tze Zhao
+tagline: Quant research & research engineering
+description: >-
+  Final-year CS student building the validation machine that decides whether a
+  trading strategy is real — microstructure + ML, validated end-to-end from raw
+  ticks through live execution. Technical writeups on the methodology and rigor.
+url: "https://chongtzezhao.github.io"
+baseurl: ""
+lang: en_US
+
+# --- Author / SEO --------------------------------------------------------
+author:
+  name: Chong Tze Zhao
+  email: chongtzezhao@gmail.com
+
+# Logo for jekyll-seo-tag JSON-LD. The default OG image is set per-page via
+# `defaults` below (seo-tag reads og:image from page.image, not site.image).
+logo: /assets/img/favicon-512.png
+
+# Outbound links (single source of truth — edit here, used across the site).
+social_links:
+  github: chongtzezhao
+  linkedin: tzchong
+  # twitter: ""   # TODO: add handle once the X account exists (brief §9)
+resume_path: /resume.pdf
+contact_email: chongtzezhao@gmail.com
+
+# NOTE on Twitter/X: we deliberately do NOT set `twitter:` here. With no handle
+# yet, setting it would make jekyll-seo-tag emit broken twitter:site/creator
+# tags. seo-tag still emits `twitter:card: summary_large_image` on its own
+# because every page has an og:image (set in `defaults` below) — so shared links
+# show the big card. Once the X account exists, add:
+#   twitter:
+#     username: yourhandle
+
+# --- Build ---------------------------------------------------------------
+# Posts live at /writing/<slug>/ to match the site's information architecture.
+permalink: /writing/:title/
+timezone: Asia/Singapore
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+  input: GFM            # GitHub-flavored markdown
+  hard_wrap: false
+  math_engine: null     # we render math with KaTeX on the client, not kramdown
+
+sass:
+  style: compressed
+  sourcemap: never
+
+# Default front matter so every post Just Works with zero boilerplate.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      math: false       # set `math: true` in a post to load KaTeX
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /assets/img/og-default.png   # default link-preview card (og:image)
+
+# Drafts (draft: true) and future-dated posts never publish.
+future: false
+show_drafts: false
+
+# --- Plugins (all natively supported by GitHub Pages) --------------------
+plugins:
+  - jekyll-seo-tag       # per-page <title>, meta, OpenGraph, Twitter cards
+  - jekyll-feed          # RSS/Atom feed at /feed.xml
+  - jekyll-sitemap       # sitemap.xml
+
+feed:
+  path: /feed.xml
+
+# --- Exclude from the build ---------------------------------------------
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - node_modules
+  - "*.tex"

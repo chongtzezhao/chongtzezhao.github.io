@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="post wrap">
+  <header class="post__header">
+    <h1 class="post__title">{{ page.title | escape }}</h1>
+    {%- if page.description -%}
+      <p class="post__desc">{{ page.description | escape }}</p>
+    {%- endif -%}
+  </header>
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

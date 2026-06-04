@@ -1,17 +1,61 @@
-<!DOCTYPE>
-<html>
-<head>
-</head>
-<body>
-	<h2>This website is currently under construction</h2>
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="/__/firebase/7.15.0/firebase-app.js"></script>
+---
+layout: default
+# No `title` here so jekyll-seo-tag renders "Chong Tze Zhao | <tagline>" for the
+# homepage <title> — the page that must own his name in search.
+---
 
-	<!-- TODO: Add SDKs for Firebase products that you want to use
-	     https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="/__/firebase/7.15.0/firebase-analytics.js"></script>
+<section class="hero wrap wrap--wide">
+  <p class="hero__eyebrow">Quant research &middot; Research engineering</p>
+  <h1 class="hero__title">
+    I build the validation machine that decides whether a trading strategy is
+    <span class="accent">real</span> — and I kill the ones that
+    <span class="accent">aren&rsquo;t</span>.
+  </h1>
+  <p class="hero__lead">
+    Microstructure + ML, validated end-to-end from raw ticks through live
+    execution — with a documented habit of killing strategies that don&rsquo;t
+    survive honest cost and leakage tests.
+  </p>
 
-	<!-- Initialize Firebase -->
-	<script src="/__/firebase/init.js"></script>
-</body>
-</html>
+  {% include social-links.html class="social--hero" %}
+</section>
+
+<section class="section wrap wrap--wide">
+  <div class="home-about">
+    <p class="section-label">About</p>
+    <p>
+      I&rsquo;m <strong>Chong Tze Zhao</strong>, a final-year Computer Science
+      student at the National University of Singapore, targeting roles as a
+      quant researcher, quant developer, or research engineer.
+    </p>
+    <p>
+      Over the past months I&rsquo;ve built an end-to-end systematic-trading
+      research stack — from raw tick ingestion and market-microstructure
+      features, through an AFML-style ML validation pipeline on an HPC cluster,
+      out to a live execution bot. The thread running through all of it is that
+      I don&rsquo;t trust my own backtests: I calibrate slippage from real fills,
+      audit for leakage, and I&rsquo;ve killed more strategies than I&rsquo;ve
+      shipped because they didn&rsquo;t survive honest cost.
+    </p>
+    <p>
+      <a href="{{ '/about/' | relative_url }}">More about me &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<section class="section wrap wrap--wide">
+  <div class="teaser">
+    <p class="section-label">Writing</p>
+    <div class="teaser__card">
+      <h2>Technical writeups</h2>
+      <p>
+        In-depth notes on the methodology and rigor behind the work —
+        market microstructure, ML validation, and the gap between a backtest
+        and reality. The first pieces are on the way.
+      </p>
+      <a class="btn btn--ghost" href="{{ '/writing/' | relative_url }}">
+        Go to Writing &rarr;
+      </a>
+    </div>
+  </div>
+</section>
