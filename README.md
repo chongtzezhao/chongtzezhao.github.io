@@ -84,9 +84,8 @@ assets/css/          style.scss  (design system: light + dark)
 assets/js/           theme.js    (dark-mode toggle)
 assets/img/          favicon + og-default.png (link-preview card)
 _posts/              Blog posts (Markdown) — drop new posts here
-index.html           Home (hero + about + writing teaser)
+index.html           Home — doubles as About (identity panel + bio, selected work, writing, contact)
 writing/index.html   Writing index (auto-lists posts; empty state until then)
-about.md             About page
 404.html             Not-found page
 robots.txt           + auto-generated sitemap.xml & feed.xml
 ```

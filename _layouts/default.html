@@ -11,5 +11,6 @@
   </main>
   {% include footer.html %}
   <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
+  {% if page.profile %}<script src="{{ '/assets/js/home.js' | relative_url }}" defer></script>{% endif %}
 </body>
 </html>

@@ -1,61 +1,190 @@
 ---
 layout: default
-# No `title` here so jekyll-seo-tag renders "Chong Tze Zhao | <tagline>" for the
-# homepage <title> — the page that must own his name in search.
+profile: true
+# Home doubles as the About page (no separate /about/). No `title` so
+# jekyll-seo-tag renders "Chong Tze Zhao | <tagline>" for name-search.
 ---
 
-<section class="hero wrap wrap--wide">
-  <p class="hero__eyebrow">Quant research &middot; Research engineering</p>
-  <h1 class="hero__title">
-    I build the validation machine that decides whether a trading strategy is
-    <span class="accent">real</span> — and I kill the ones that
-    <span class="accent">aren&rsquo;t</span>.
-  </h1>
-  <p class="hero__lead">
-    Microstructure + ML, validated end-to-end from raw ticks through live
-    execution — with a documented habit of killing strategies that don&rsquo;t
-    survive honest cost and leakage tests.
-  </p>
+<div class="profile wrap wrap--wide">
 
-  {% include social-links.html class="social--hero" %}
-</section>
-
-<section class="section wrap wrap--wide">
-  <div class="home-about">
-    <p class="section-label">About</p>
-    <p>
-      I&rsquo;m <strong>Chong Tze Zhao</strong>, a final-year Computer Science
-      student at the National University of Singapore, targeting roles as a
-      quant researcher, quant developer, or research engineer.
-    </p>
-    <p>
-      Over the past months I&rsquo;ve built an end-to-end systematic-trading
-      research stack — from raw tick ingestion and market-microstructure
-      features, through an AFML-style ML validation pipeline on an HPC cluster,
-      out to a live execution bot. The thread running through all of it is that
-      I don&rsquo;t trust my own backtests: I calibrate slippage from real fills,
-      audit for leakage, and I&rsquo;ve killed more strategies than I&rsquo;ve
-      shipped because they didn&rsquo;t survive honest cost.
-    </p>
-    <p>
-      <a href="{{ '/about/' | relative_url }}">More about me &rarr;</a>
-    </p>
-  </div>
-</section>
-
-<section class="section wrap wrap--wide">
-  <div class="teaser">
-    <p class="section-label">Writing</p>
-    <div class="teaser__card">
-      <h2>Technical writeups</h2>
-      <p>
-        In-depth notes on the methodology and rigor behind the work —
-        market microstructure, ML validation, and the gap between a backtest
-        and reality. The first pieces are on the way.
+  <header class="profile__intro">
+    <div class="profile__id">
+      <h1 class="profile__name">Tze Zhao</h1>
+      <p class="profile__role">Quant research &amp; research engineering</p>
+      <p class="profile__pitch">
+        I build the machine that decides whether a trading strategy is real —
+        microstructure&nbsp;+&nbsp;ML, validated from raw ticks to live execution.
       </p>
-      <a class="btn btn--ghost" href="{{ '/writing/' | relative_url }}">
-        Go to Writing &rarr;
-      </a>
+
+      <nav class="profile__nav" aria-label="Sections">
+        <ul>
+          <li><a href="#about" class="is-active"><span class="profile__nav-line"></span>About</a></li>
+          <li><a href="#work"><span class="profile__nav-line"></span>Selected work</a></li>
+          <li><a href="#writing"><span class="profile__nav-line"></span>Writing</a></li>
+          <li><a href="#contact"><span class="profile__nav-line"></span>Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
+
+    {% include social-links.html class="social--intro" %}
+  </header>
+
+  <main class="profile__content">
+
+    <section id="about" class="profile__section" aria-label="About">
+      <p>
+        I&rsquo;m a final-year Computer Science student at the
+        <a href="https://nus.edu.sg" rel="noopener" target="_blank">National University of Singapore</a>,
+        heading into <strong>quantitative research and research engineering</strong>.
+        For the last few months I&rsquo;ve built an end-to-end systematic-trading
+        research stack — from raw tick ingestion and market-microstructure
+        features, through an
+        <a href="https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086" rel="noopener" target="_blank">AFML</a>-style
+        ML validation pipeline on an HPC cluster, out to a live execution bot.
+      </p>
+      <p>
+        The thread through all of it: <strong>I&rsquo;m structurally afraid of
+        fooling myself, and I build the apparatus that proves it.</strong> I
+        calibrate slippage from real fills, audit relentlessly for leakage, and
+        run the tests that can kill my own ideas. I&rsquo;ve killed more
+        strategies than I&rsquo;ve shipped — with evidence — because they
+        didn&rsquo;t survive honest cost. The one that did is running live.
+      </p>
+      <p>
+        I&rsquo;m looking for a seat where that rigor <em>is</em> the job: quant
+        researcher, quant developer, or research engineer.
+      </p>
+    </section>
+
+    <section id="work" class="profile__section" aria-label="Selected work">
+      <h2 class="section-label">Selected work</h2>
+      <p class="profile__section-note">
+        Self-directed crypto research, Feb&ndash;Jun 2026. Every result is grounded
+        in a dated, reproducible artifact; numbers are cost, leakage, and infra
+        facts — no signals or edge.
+      </p>
+
+      <ul class="work-list">
+        <li class="work-item">
+          <h3 class="work-item__title">The phantom-fill trap</h3>
+          <p class="work-item__lead">A backtest is only as honest as its fill model — so I rebuild fills from raw order-book data before trusting any P&amp;L.</p>
+          <p class="work-item__desc">
+            An Avellaneda&ndash;Stoikov market-maker backtested at Sharpe &minus;3.5.
+            I suspected the engine was filling on transient price-touches, rebuilt
+            the fill model from order-book-delta-inferred trades, and showed
+            <strong>~65% of the fills were phantom</strong>. The strategy was never
+            the problem — the simulation was lying.
+          </p>
+          <ul class="work-item__tags">
+            <li class="tag">microstructure</li><li class="tag">hftbacktest</li><li class="tag">Python</li>
+          </ul>
+        </li>
+
+        <li class="work-item">
+          <h3 class="work-item__title">269 commits, and the answer was &ldquo;no&rdquo;</h3>
+          <p class="work-item__lead">Most edges die at realistic cost — I model it from real fills and walk away from what doesn&rsquo;t survive, with a reproducible paper trail.</p>
+          <p class="work-item__desc">
+            An ML-gated volatility-breakout strategy that looked clean on paper.
+            A numba slippage model calibrated from <strong>700+ real fills</strong>,
+            plus a self-inflicted lookahead leak I caught, flipped the edge
+            negative across <strong>all 42 parameter cells</strong>. I killed the
+            strategy class and shipped a reproducible negative-result package.
+          </p>
+          <ul class="work-item__tags">
+            <li class="tag">backtesting</li><li class="tag">numba</li><li class="tag">walk-forward</li>
+          </ul>
+        </li>
+
+        <li class="work-item">
+          <h3 class="work-item__title">The corruption detective</h3>
+          <p class="work-item__lead">When a model won&rsquo;t learn, the data is guilty until proven innocent — I audit the panel before I ever tune the model.</p>
+          <p class="work-item__desc">
+            A model abstaining on every fold — so I audited the data, not the
+            model. A streaming pass over <strong>3 years</strong> of exchange
+            archives found <strong>33% non-monotonic</strong> timestamps and
+            13M+ duplicate trades inflating volatility features. I patched the
+            panels and published both the contaminated and corrected results.
+          </p>
+          <ul class="work-item__tags">
+            <li class="tag">data-integrity</li><li class="tag">PyArrow</li><li class="tag">pandas</li>
+          </ul>
+        </li>
+
+        <li class="work-item">
+          <h3 class="work-item__title">An AFML pipeline on HPC</h3>
+          <p class="work-item__lead">I build the validation machinery itself — with leakage gates enforced by the pipeline, not by good intentions.</p>
+          <p class="work-item__desc">
+            CUSUM event sampling, triple-barrier labels, purged/embargoed CV,
+            sample weights, and a <strong>non-negotiable lookahead auditor</strong>
+            gating every stage — deployed to a production config on a
+            <strong>SLURM</strong> cluster that held up under 16&nbsp;bps
+            round-trip cost stress.
+          </p>
+          <ul class="work-item__tags">
+            <li class="tag">LightGBM</li><li class="tag">SLURM</li><li class="tag">AFML</li>
+          </ul>
+        </li>
+
+        <li class="work-item">
+          <h3 class="work-item__title">Memory-leak archaeology</h3>
+          <p class="work-item__lead">Research only counts if it runs — I keep long-running data systems alive in production at scale.</p>
+          <p class="work-item__desc">
+            An unbounded leak in a <strong>311-WebSocket</strong> async collector,
+            traced past Python&rsquo;s tracked allocator to PyArrow C++ column
+            metadata in the glibc heap. Three fixes cut RSS drift from
+            <strong>2.4&nbsp;GB to ~0</strong> over a 104-hour run.
+          </p>
+          <ul class="work-item__tags">
+            <li class="tag">asyncio</li><li class="tag">systems</li><li class="tag">glibc</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section id="writing" class="profile__section" aria-label="Writing">
+      <h2 class="section-label">Writing</h2>
+      {% if site.posts.size > 0 %}
+        <ul class="mini-posts">
+          {% for post in site.posts limit: 4 %}
+            <li class="mini-post">
+              <time class="mini-post__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+              <a class="mini-post__title" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <p><a class="profile__more" href="{{ '/writing/' | relative_url }}">All writing &rarr;</a></p>
+      {% else %}
+        <p class="profile__writing-empty">
+          In-depth notes on the methodology and rigor behind the work —
+          microstructure, ML validation, and the gap between a backtest and
+          reality. The first pieces are on the way.
+        </p>
+        <p><a class="profile__more" href="{{ '/writing/' | relative_url }}">Go to Writing &rarr;</a></p>
+      {% endif %}
+    </section>
+
+    <section id="contact" class="profile__section" aria-label="Contact">
+      <h2 class="section-label">Contact</h2>
+      <p class="profile__contact-lead">
+        If a desk where that rigor <em>is</em> the job sounds like yours, the
+        fastest way to reach me is email — I read everything.
+      </p>
+      <p class="profile__cta">
+        <a class="btn btn--primary btn--lg" href="mailto:{{ site.contact_email }}">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>
+          </svg>
+          Email me
+        </a>
+      </p>
+      <p class="profile__contact-secondary">
+        Or find me on
+        <a href="https://github.com/{{ site.social_links.github }}" rel="me noopener" target="_blank">GitHub</a>,
+        <a href="https://linkedin.com/in/{{ site.social_links.linkedin }}" rel="me noopener" target="_blank">LinkedIn</a>,
+        and my <a href="{{ site.resume_path | relative_url }}" rel="noopener" target="_blank">résumé</a>.
+      </p>
+    </section>
+
+  </main>
+</div>
