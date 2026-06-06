@@ -5,7 +5,7 @@
 {%- assign p = page.url -%}
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
-    <a class="nav__brand" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+    {% unless page.url == '/' %}<a class="nav__brand" href="{{ '/' | relative_url }}">Tze Zhao</a>{% endunless %}
 
     <ul class="nav__links">
       <li>

@@ -13,8 +13,7 @@ profile: true
       <p class="profile__role">Quant research &amp; research engineering</p>
       <p class="profile__motto">Proof over promise.</p>
       <p class="profile__pitch">
-        I build the machine that decides whether a trading strategy is real —
-        microstructure&nbsp;+&nbsp;ML, validated from raw ticks to live execution.
+        Final-year CS at NUS. I build quant research infrastructure and find out which strategies actually survive — usually the answer is no.
       </p>
 
       <nav class="profile__nav" aria-label="Sections">
@@ -35,41 +34,30 @@ profile: true
 
     <section id="about" class="profile__section" aria-label="About">
       <p>
-        I&rsquo;m a final-year Computer Science student at the
-        <a href="https://nus.edu.sg" rel="noopener" target="_blank">National University of Singapore</a>,
-        heading into <strong>quantitative research and research engineering</strong>.
-        For the last few months I&rsquo;ve built an end-to-end systematic-trading
-        research stack — from raw tick ingestion and market-microstructure
-        features, through an
-        <a href="https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086" rel="noopener" target="_blank">AFML</a>-style
-        ML validation pipeline on an HPC cluster, out to a live execution bot.
+        Final-year CS student at <a href="https://nus.edu.sg" rel="noopener" target="_blank">NUS</a>.
+        For the last few months I&rsquo;ve built a quant research stack from scratch &mdash;
+        tick data, microstructure features, an <a href="https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086" rel="noopener" target="_blank">AFML</a>-style
+        ML pipeline on a SLURM cluster, and a live execution bot on a DEX.
       </p>
       <p>
-        The thread through all of it: <strong>I&rsquo;m structurally afraid of
-        fooling myself, and I build the apparatus that proves it.</strong> I
-        calibrate slippage from real fills, audit relentlessly for leakage, and
-        run the tests that can kill my own ideas. I&rsquo;ve killed more
-        strategies than I&rsquo;ve shipped — with evidence — because they
-        didn&rsquo;t survive honest cost. The one that did is running live.
+        Most of it didn&rsquo;t survive honest cost. The one strategy that did is still running.
+        The failures are documented &mdash; I publish the negative results too.
       </p>
       <p>
-        I&rsquo;m looking for a seat where that rigor <em>is</em> the job: quant
-        researcher, quant developer, or research engineer.
+        Looking for quant researcher or quant dev roles.
       </p>
     </section>
 
     <section id="work" class="profile__section" aria-label="Selected work">
       <h2 class="section-label">Selected work</h2>
       <p class="profile__section-note">
-        Self-directed crypto research, Feb&ndash;Jun 2026. Every result is grounded
-        in a dated, reproducible artifact; numbers are cost, leakage, and infra
-        facts — no signals or edge.
+        Self-directed crypto research, Feb&ndash;Jun 2026.
       </p>
 
       <ul class="work-list">
         <li class="work-item">
           <h3 class="work-item__title">The phantom-fill trap</h3>
-          <p class="work-item__lead">A backtest is only as honest as its fill model — so I rebuild fills from raw order-book data before trusting any P&amp;L.</p>
+          <p class="work-item__lead">Touch-based backtest engines fill you on any trade at your price. Exchanges don&rsquo;t work that way.</p>
           <p class="work-item__desc">
             An Avellaneda&ndash;Stoikov market-maker backtested at Sharpe &minus;3.5.
             I suspected the engine was filling on transient price-touches, rebuilt
@@ -84,7 +72,7 @@ profile: true
 
         <li class="work-item">
           <h3 class="work-item__title">269 commits, and the answer was &ldquo;no&rdquo;</h3>
-          <p class="work-item__lead">Most edges die at realistic cost — I model it from real fills and walk away from what doesn&rsquo;t survive, with a reproducible paper trail.</p>
+          <p class="work-item__lead">I ran the test that could kill my own idea. It did.</p>
           <p class="work-item__desc">
             An ML-gated volatility-breakout strategy that looked clean on paper.
             A numba slippage model calibrated from <strong>700+ real fills</strong>,
@@ -99,7 +87,7 @@ profile: true
 
         <li class="work-item">
           <h3 class="work-item__title">The corruption detective</h3>
-          <p class="work-item__lead">When a model won&rsquo;t learn, the data is guilty until proven innocent — I audit the panel before I ever tune the model.</p>
+          <p class="work-item__lead">Model won&rsquo;t learn? Suspect the data before you touch the model.</p>
           <p class="work-item__desc">
             A model abstaining on every fold — so I audited the data, not the
             model. A streaming pass over <strong>3 years</strong> of exchange
@@ -114,7 +102,7 @@ profile: true
 
         <li class="work-item">
           <h3 class="work-item__title">An AFML pipeline on HPC</h3>
-          <p class="work-item__lead">I build the validation machinery itself — with leakage gates enforced by the pipeline, not by good intentions.</p>
+          <p class="work-item__lead">I wrote the leakage auditor before I wrote the strategy.</p>
           <p class="work-item__desc">
             CUSUM event sampling, triple-barrier labels, purged/embargoed CV,
             sample weights, and a <strong>non-negotiable lookahead auditor</strong>
@@ -129,7 +117,7 @@ profile: true
 
         <li class="work-item">
           <h3 class="work-item__title">Memory-leak archaeology</h3>
-          <p class="work-item__lead">Research only counts if it runs — I keep long-running data systems alive in production at scale.</p>
+          <p class="work-item__lead">A collector running 311 WebSocket streams for days needs to not OOM. This one did.</p>
           <p class="work-item__desc">
             An unbounded leak in a <strong>311-WebSocket</strong> async collector,
             traced past Python&rsquo;s tracked allocator to PyArrow C++ column
@@ -143,7 +131,7 @@ profile: true
 
         <li class="work-item">
           <h3 class="work-item__title">Limit-order-book matching engine</h3>
-          <p class="work-item__lead">A correctness oracle is the only honest benchmark — every optimised variant must produce byte-identical trades to the reference before its speed matters.</p>
+          <p class="work-item__lead">Five C++ implementations. Only the ones that produce byte-identical trades to the reference get a speedup claim.</p>
           <p class="work-item__desc">
             Five layered C++17 implementations of a price-time-priority LOB
             (reference &rarr; slow &rarr; broken &rarr; optimised &rarr; lock-free
