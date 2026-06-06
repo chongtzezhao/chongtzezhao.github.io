@@ -1,0 +1,212 @@
+%-------------------------
+% Resume in Latex
+% Author : Chong Tze Zhao
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.55in}
+\addtolength{\textheight}{1.1in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-3pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Large \scshape Chong Tze Zhao} \\ \vspace{1pt}
+    \small 8656 3852 $|$ \href{mailto:chongtzezhao@gmail.com}{\underline{chongtzezhao@gmail.com}} $|$
+    \href{https://chongtzezhao.github.io}{\underline{chongtzezhao.github.io}}
+\end{center}
+
+
+\section{Profile}
+\begin{center}
+  \small{\textbf{Proof over promise.}}
+\end{center}\vspace{-8pt}
+\small{Final-year Computer Science student targeting \textbf{quantitative research engineering / quant development}. Strong in Python systems, ML/data pipelines, cloud services, and validation-heavy systematic research; selected writeups at \href{https://chongtzezhao.github.io}{\underline{chongtzezhao.github.io}}.}
+
+%----------EDUCATION----------
+\section{Education}
+  \resumeSubHeadingListStart
+ \resumeSubheading
+      {National University of Singapore}{Singapore}
+      {Bachelor of Computing in Computer Science} {August 2023 -- May 2027 (Expected)}
+      \resumeItemListStart
+        \resumeItem{NUS Merit Scholar; GPA: 4.58/5.00}
+        \resumeItem{Relevant coursework: CS3233 Competitive Programming (advanced algorithms, C++ optimization), CS2100 Computer Organisation (memory hierarchy, pipelining)}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+   \small{\item{
+     \textbf{Languages}{: Python, C++, Go, Java, TypeScript, SQL} \\
+     \textbf{ML / Data / Systems}{: LightGBM, PyTorch, pandas, numpy, numba, PyArrow/Parquet, asyncio/WebSockets, Docker, Linux, SLURM, AWS (ECS/Fargate, S3, Lambda, CloudFormation), React, Express, FastAPI} \\
+     \textbf{Algorithms}{: competitive programming, single-threaded C++ optimization, cache-aware data layout (row- vs.\ column-major)}
+   }}
+ \end{itemize}
+
+
+%-----------INDEPENDENT QUANT RESEARCH-----------
+\section{Independent Quantitative Research}
+\vspace{2pt}
+\small{Self-directed systematic-trading research, Feb--Jun 2026. Short summary only; deeper writeups and artifacts are linked from \href{https://chongtzezhao.github.io}{\underline{chongtzezhao.github.io}}.}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Validation-first trading research stack} $|$ \emph{Python, LightGBM, numba, PyArrow, SLURM}}{Feb -- Jun 2026}
+      \resumeItemListStart
+        \resumeItem{Built research infrastructure for tick ingestion, market-microstructure features, walk-forward evaluation, slippage modeling, leakage audits, and live/paper execution experiments.}
+        \resumeItem{Published first technical writeup on backtest fill realism: diagnosed a touch-based market-making simulator where roughly \textbf{65\%} of fills were unsupported by a stricter order-book-delta fill model.}
+        \resumeItem{Built an AFML-style pipeline (CUSUM events, triple-barrier labels, purged/embargoed CV) and used real-fill slippage calibration plus leakage checks to reject strategy variants that did not survive honest costs.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Software Engineering Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Engineer Intern}{Jan 2026 -- Jun 2026}
+      {Synapxe (Singapore's national HealthTech agency)}{Singapore}
+      \resumeItemListStart
+        \resumeItem{Designed and shipped \textbf{two internal monitoring dashboards} covering scheduled batch jobs and Oracle Service Bus integration traffic; deployed to staging on \textbf{AWS ECS Fargate} behind an internal ALB.}
+        \resumeItem{Architected a reusable decoupled \textbf{producer/consumer pattern} (Python writer $\rightarrow$ \textbf{S3} $\rightarrow$ Node/Express + React SPA) provisioned via \textbf{CloudFormation}, cutting time-to-build for the follow-on dashboard.}
+        \resumeItem{Authored 2{,}000+ lines across \textbf{React 19 / TypeScript}, \textbf{Express 5 / Python}, and CloudFormation IaC, reaching \textbf{$\sim$90\%} test coverage.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineer Intern}{Jun 2025 -- Aug 2025}
+      {Cinch Asia}{Singapore}
+      \resumeItemListStart
+        \resumeItem{Launched two company-wide AI services in \textbf{Python} and \textbf{Docker}, reducing manual data processing by \textbf{30\%}.}
+        \resumeItem{Rewrote 8 legacy \textbf{AWS Lambda} scripts into consolidated \textbf{Golang microservices}, reducing cold-start latency by \textbf{75\%} and cutting compute costs by \textbf{20\%}.}
+        \resumeItem{Implemented CI/CD and monitoring pipelines (\textbf{GitHub Actions}, Docker) to automate deployment and improve reliability.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Teaching Assistant $|$ \emph{CS2100 Computer Organisation}}{Aug 2024 -- May 2025}
+      {National University of Singapore}{Singapore}
+      \resumeItemListStart
+        \resumeItem{Tutored 100+ students weekly in data representation, pipelining, memory hierarchy, and assembly; built lab materials on processor architecture and performance optimization.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------EARLY INTEREST / SOCIETIES-----------
+\section{Activities}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Quant Engineer (early exposure)}{Sep 2023 -- May 2024}
+      {NUS Investment Society --- Quantitative Finance Department}{Singapore}
+      \resumeItemListStart
+        \resumeItem{First exposure to systematic trading: implemented a \textbf{mean--CVaR} portfolio optimizer and backtested allocation strategies on historical market data for the department's research track.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Selected Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Limit-Order-Book Matching Engine} $|$ \emph{C++17, price-time priority}}{Jun 2026}
+      \resumeItemListStart
+        \resumeItem{Built five layered implementations (reference oracle, intentionally broken, slow, cache-optimized, lock-free concurrent reads) sharing a deterministic workload; a full-trade-stream checksum oracle confirms bit-identical execution across correct engines and catches the deliberate mis-pricing bug.}
+        \resumeItem{Optimized engine: flat price ladder, intrusive node pool, O(1) cancel; \texttt{CONSTRAINTS.md} documents exact breakdown conditions (sparse book, large id space, geometric resize spikes) rather than claiming universal wins.}
+        \resumeItem{Parallel engine: seqlock for lock-free concurrent snapshot reads; validated under ASan, UBSan, and TSan against a sequential read oracle.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{BrainHack --- TIL AI Competition} $|$ \emph{Python, FastAPI, Docker, PyTorch, CUDA}}{May -- Jun 2024}
+      \resumeItemListStart
+        \resumeItem{Co-led a 5-person team integrating \textbf{ASR}, \textbf{NLP}, and \textbf{VLM} models into an end-to-end multimodal pipeline served via a containerized \textbf{FastAPI} inference microservice (sub-100ms responses); \textbf{Finalist} among 50+ teams.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+\end{document}
