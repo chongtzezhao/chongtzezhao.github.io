@@ -140,6 +140,27 @@ profile: true
             <li class="tag">asyncio</li><li class="tag">systems</li><li class="tag">glibc</li>
           </ul>
         </li>
+
+        <li class="work-item">
+          <h3 class="work-item__title">Limit-order-book matching engine</h3>
+          <p class="work-item__lead">A correctness oracle is the only honest benchmark — every optimised variant must produce byte-identical trades to the reference before its speed matters.</p>
+          <p class="work-item__desc">
+            Five layered C++17 implementations of a price-time-priority LOB
+            (reference &rarr; slow &rarr; broken &rarr; optimised &rarr; lock-free
+            concurrent reads) sharing a single deterministic workload. A
+            <strong>full-trade-stream checksum</strong> confirms bit-identical
+            execution across correct engines and catches the intentional
+            mis-pricing bug. The optimised engine uses a flat price ladder,
+            intrusive node pool, and O(1) cancel; <code>CONSTRAINTS.md</code>
+            documents exactly where its assumptions break down.
+          </p>
+          <ul class="work-item__tags">
+            <li class="tag">C++17</li><li class="tag">matching-engine</li><li class="tag">price-time priority</li><li class="tag">seqlock</li>
+          </ul>
+          <p class="work-item__link">
+            <a href="https://github.com/chongtzezhao/exchange-sim" rel="noopener" target="_blank">github.com/chongtzezhao/exchange-sim &rarr;</a>
+          </p>
+        </li>
       </ul>
     </section>
 

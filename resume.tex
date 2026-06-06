@@ -94,16 +94,11 @@
 %----------HEADING----------
 \begin{center}
     \textbf{\Large \scshape Chong Tze Zhao} \\ \vspace{1pt}
+    \small{\textbf{Proof over promise.}} \\ \vspace{1pt}
     \small 8656 3852 $|$ \href{mailto:chongtzezhao@gmail.com}{\underline{chongtzezhao@gmail.com}} $|$
     \href{https://chongtzezhao.github.io}{\underline{chongtzezhao.github.io}}
 \end{center}
 
-
-\section{Profile}
-\begin{center}
-  \small{\textbf{Proof over promise.}}
-\end{center}\vspace{-8pt}
-\small{Final-year Computer Science student targeting \textbf{quantitative research engineering / quant development}. Strong in Python systems, ML/data pipelines, cloud services, and validation-heavy systematic research; selected writeups at \href{https://chongtzezhao.github.io}{\underline{chongtzezhao.github.io}}.}
 
 %----------EDUCATION----------
 \section{Education}
@@ -124,23 +119,23 @@
    \small{\item{
      \textbf{Languages}{: Python, C++, Go, Java, TypeScript, SQL} \\
      \textbf{ML / Data / Systems}{: LightGBM, PyTorch, pandas, numpy, numba, PyArrow/Parquet, asyncio/WebSockets, Docker, Linux, SLURM, AWS (ECS/Fargate, S3, Lambda, CloudFormation), React, Express, FastAPI} \\
-     \textbf{Algorithms}{: competitive programming, single-threaded C++ optimization, cache-aware data layout (row- vs.\ column-major)}
+     \textbf{Algorithms}{: competitive programming, single-threaded C++ optimization}
    }}
  \end{itemize}
 
 
 %-----------INDEPENDENT QUANT RESEARCH-----------
-\section{Independent Quantitative Research}
+\section{Independent Systematic Trading Research}
 \vspace{2pt}
-\small{Self-directed systematic-trading research, Feb--Jun 2026. Short summary only; deeper writeups and artifacts are linked from \href{https://chongtzezhao.github.io}{\underline{chongtzezhao.github.io}}.}
+\small{Self-directed systematic-trading research, Feb--Jun 2026. For technical writeups and supporting artifacts, see \href{https://chongtzezhao.github.io}{\textbf{\underline{chongtzezhao.github.io}}}.}
   \resumeSubHeadingListStart
 
     \resumeProjectHeading
       {\textbf{Validation-first trading research stack} $|$ \emph{Python, LightGBM, numba, PyArrow, SLURM}}{Feb -- Jun 2026}
       \resumeItemListStart
-        \resumeItem{Built research infrastructure for tick ingestion, market-microstructure features, walk-forward evaluation, slippage modeling, leakage audits, and live/paper execution experiments.}
-        \resumeItem{Published first technical writeup on backtest fill realism: diagnosed a touch-based market-making simulator where roughly \textbf{65\%} of fills were unsupported by a stricter order-book-delta fill model.}
-        \resumeItem{Built an AFML-style pipeline (CUSUM events, triple-barrier labels, purged/embargoed CV) and used real-fill slippage calibration plus leakage checks to reject strategy variants that did not survive honest costs.}
+        \resumeItem{Built Python research infrastructure for tick ingestion, market-microstructure features, walk-forward evaluation, slippage calibration, leakage audits, and paper/live execution support.}
+        \resumeItem{Implemented AFML-style validation (CUSUM events, triple-barrier labels, purged/embargoed CV, sample weights) with lookahead checks treated as pipeline gates rather than manual review.}
+        \resumeItem{Calibrated slippage from real fills and rejected strategy variants that did not survive honest transaction costs, leakage checks, and walk-forward breadth.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -172,7 +167,21 @@
       {Teaching Assistant $|$ \emph{CS2100 Computer Organisation}}{Aug 2024 -- May 2025}
       {National University of Singapore}{Singapore}
       \resumeItemListStart
-        \resumeItem{Tutored 100+ students weekly in data representation, pipelining, memory hierarchy, and assembly; built lab materials on processor architecture and performance optimization.}
+        \resumeItem{Selected as Teaching Assistant for CS2100; taught 100+ students weekly in computer architecture, pipelining, memory hierarchy, assembly, and low-level performance optimization.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Selected Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Exchange Matching Engine \& Market Simulator} $|$ \emph{C++17, price-time priority}}{Jun 2026}
+      \resumeItemListStart
+        \resumeItem{Built five layered implementations (reference oracle, intentionally broken, slow, cache-optimized, lock-free concurrent reads) sharing a deterministic workload; a full-trade-stream checksum oracle confirms bit-identical execution across correct engines and catches the deliberate mis-pricing bug.}
+        \resumeItem{Optimized engine: flat price ladder, intrusive node pool, O(1) cancel; \texttt{CONSTRAINTS.md} documents exact breakdown conditions (sparse book, large id space, geometric resize spikes) rather than claiming universal wins.}
+        \resumeItem{Parallel engine: seqlock for lock-free concurrent snapshot reads; validated under ASan, UBSan, and TSan against a sequential read oracle.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -186,25 +195,6 @@
       {NUS Investment Society --- Quantitative Finance Department}{Singapore}
       \resumeItemListStart
         \resumeItem{First exposure to systematic trading: implemented a \textbf{mean--CVaR} portfolio optimizer and backtested allocation strategies on historical market data for the department's research track.}
-      \resumeItemListEnd
-  \resumeSubHeadingListEnd
-
-
-%-----------PROJECTS-----------
-\section{Selected Projects}
-  \resumeSubHeadingListStart
-    \resumeProjectHeading
-      {\textbf{Limit-Order-Book Matching Engine} $|$ \emph{C++17, price-time priority}}{Jun 2026}
-      \resumeItemListStart
-        \resumeItem{Built five layered implementations (reference oracle, intentionally broken, slow, cache-optimized, lock-free concurrent reads) sharing a deterministic workload; a full-trade-stream checksum oracle confirms bit-identical execution across correct engines and catches the deliberate mis-pricing bug.}
-        \resumeItem{Optimized engine: flat price ladder, intrusive node pool, O(1) cancel; \texttt{CONSTRAINTS.md} documents exact breakdown conditions (sparse book, large id space, geometric resize spikes) rather than claiming universal wins.}
-        \resumeItem{Parallel engine: seqlock for lock-free concurrent snapshot reads; validated under ASan, UBSan, and TSan against a sequential read oracle.}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{BrainHack --- TIL AI Competition} $|$ \emph{Python, FastAPI, Docker, PyTorch, CUDA}}{May -- Jun 2024}
-      \resumeItemListStart
-        \resumeItem{Co-led a 5-person team integrating \textbf{ASR}, \textbf{NLP}, and \textbf{VLM} models into an end-to-end multimodal pipeline served via a containerized \textbf{FastAPI} inference microservice (sub-100ms responses); \textbf{Finalist} among 50+ teams.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
